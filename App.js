@@ -1,20 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, StatusBar } from "react-native";
 
-export default function App() {
+// Styles
+import { useFonts } from "expo-font";
+
+// Contexts
+import AuthenticationContextProvider from "./src/contexts/Authentication";
+
+// Navigation
+import { NavigationContainer } from "@react-navigation/native";
+
+// Routes
+import { AppStack, AuthStack } from "./src/routes";
+
+const App = () => {
+  const { user } = useAuthenticationContext();
+
+  const [fontsLoaded] = useFonts({
+    "Poppins-300": require("./assets/fonts/Poppins/Poppins-Medium.ttf"),
+    "Poppins-400": require("./assets/fonts/Poppins/Poppins-Regular.ttf"),
+    "Montserrat-400": require("./assets/fonts/Montserrat/Montserrat.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <AuthenticationContextProvider>
+        <View style={styles.app}>
+          <StatusBar style="auto" />
+          {user ? <AppStack /> : <AuthStack />}
+        </View>
+      </AuthenticationContextProvider>
+    </NavigationContainer>
   );
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  app: {},
 });
