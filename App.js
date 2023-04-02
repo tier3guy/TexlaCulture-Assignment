@@ -16,9 +16,9 @@ const App = () => {
   const { user } = useAuthenticationContext();
 
   const [fontsLoaded] = useFonts({
-    "Poppins-300": require("./assets/fonts/Poppins/Poppins-Medium.ttf"),
-    "Poppins-400": require("./assets/fonts/Poppins/Poppins-Regular.ttf"),
-    "Montserrat-400": require("./assets/fonts/Montserrat/Montserrat.ttf"),
+    "Poppins-300": require("./src/assets/fonts/Poppins/Poppins-Medium.ttf"),
+    "Poppins-400": require("./src/assets/fonts/Poppins/Poppins-Regular.ttf"),
+    "Montserrat-400": require("./src/assets/fonts/Montserrat/Montserrat.ttf"),
   });
 
   if (!fontsLoaded) {
