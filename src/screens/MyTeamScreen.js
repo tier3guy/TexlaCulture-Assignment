@@ -1,26 +1,21 @@
 import { View, StyleSheet } from "react-native";
 
 // Components
-import { Button, Text } from "../components";
-
-// Contexts
-import { useAuthentication } from "../contexts/Authentication";
+import { Text } from "../components";
 
 // Constants
 import { COLORS } from "../constants";
 
-const HomeScreen = () => {
-	const { setUser } = useAuthentication();
-
+const MyTeamScreen = () => {
 	return (
-		<View style={styles.home}>
-			<Text>Home Screen</Text>
+		<View style={styles.myTeam}>
+			<Text>My Team</Text>
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({
-	home: {
+	myTeam: {
 		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
@@ -28,4 +23,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default HomeScreen;
+export default MyTeamScreen;

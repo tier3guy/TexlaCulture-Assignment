@@ -5,9 +5,9 @@ import AuthStack from "./AuthStack";
 import { useAuthentication } from "../contexts/Authentication";
 
 const Routes = () => {
-  const { user } = useAuthentication();
+	const { isLoggedIn } = useAuthentication();
 
-  return user ? <AppStack /> : <AuthStack />;
+	return isLoggedIn ? <AppStack /> : <AuthStack />;
 };
 
 export default Routes;
