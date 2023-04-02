@@ -1,5 +1,5 @@
 {
-  "name": "@create-expo-app-starter-template-js",
+  "name": "create-expo-app-starter-template-js",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "bin": "./bin/cli.js",
