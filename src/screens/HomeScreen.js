@@ -1,21 +1,21 @@
 import { View, StyleSheet } from "react-native";
 
 // Components
-import { Text, Button } from "../components";
+import { Button, Text } from "../components";
 
 // Contexts
 import { useAuthentication } from "../contexts/Authentication";
 
-const LoginScreen = () => {
+const HomeScreen = () => {
 	const { setUser } = useAuthentication();
 
 	return (
-		<View style={styles.login}>
-			<Text>Login Screen</Text>
+		<View style={styles.home}>
+			<Text>Home Screen</Text>
 			<Button
-				label="Login"
+				label={"Logout"}
 				onPress={() => {
-					setUser("Avinash");
+					setUser(null);
 				}}
 			/>
 		</View>
@@ -23,11 +23,11 @@ const LoginScreen = () => {
 };
 
 const styles = StyleSheet.create({
-	login: {
+	home: {
 		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
 	},
 });
 
-export default LoginScreen;
+export default HomeScreen;

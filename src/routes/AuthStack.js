@@ -6,12 +6,16 @@ import { LoginScreen } from "../screens";
 
 const Stack = createStackNavigator();
 
-const AppStack = () => {
+const AuthStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   );
 };
 
-export default AppStack;
+export default AuthStack;

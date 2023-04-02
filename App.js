@@ -10,11 +10,9 @@ import AuthenticationContextProvider from "./src/contexts/Authentication";
 import { NavigationContainer } from "@react-navigation/native";
 
 // Routes
-import { AppStack, AuthStack } from "./src/routes";
+import Routes from "./src/routes";
 
 const App = () => {
-  const { user } = useAuthenticationContext();
-
   const [fontsLoaded] = useFonts({
     "Poppins-300": require("./src/assets/fonts/Poppins/Poppins-Medium.ttf"),
     "Poppins-400": require("./src/assets/fonts/Poppins/Poppins-Regular.ttf"),
@@ -30,7 +28,7 @@ const App = () => {
       <AuthenticationContextProvider>
         <View style={styles.app}>
           <StatusBar style="auto" />
-          {user ? <AppStack /> : <AuthStack />}
+          <Routes />
         </View>
       </AuthenticationContextProvider>
     </NavigationContainer>
@@ -40,5 +38,7 @@ const App = () => {
 export default App;
 
 const styles = StyleSheet.create({
-  app: {},
+  app: {
+    flex: 1,
+  },
 });
